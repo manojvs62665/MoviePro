@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>Movie Feedback Data</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    h2{
+        font-size: 30px;
+        font-family: "Times New Roman";
+        text-shadow: 5px 5px 5px 5px saddlebrown;
+    }
+    th{
+        font-family: "Times New Roman";
+        font-size: 20px;
+
+    }
+</style>
+<body>
+{% if mdata %}
+<center>
+<h2 class="text-center"> Check Movie Feedback Data..</h2>
+    <table border="3px">
+        <thead>
+        <tr>
+            <th>Movie Id</th>
+            <th>Movie Name</th>
+            <th>Movie Cast</th>
+            <th>Movie Rating</th>
+            <th>Movie Feedback</th>
+        </tr>
+        </thead>
+        {% for data in mdata %}
+        <tbody>
+        <tr>
+            <td>{{ data.movie_id }}</td>
+            <td>{{ data.movie_name }}</td>
+            <td>{{ data.movie_cast }}</td>
+            <td>{{ data.movie_rating }}</td>
+            <td>{{ data.movie_feedback }}</td>
+        </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</center>
+    {% else %}
+<h1>No Movie Data Availbale</h1>
+{% endif %}
+</body>
+</html>
